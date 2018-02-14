@@ -4,6 +4,7 @@
 /node_modules
 
 # firebase
+/src/shared/services/
 /src/shared/services/firebase.js
 
 # testing
