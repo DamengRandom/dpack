@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# firebase
+/src/shared/services/firebase.js
+
 # testing
 /coverage
 
