@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import List from 'material-ui/List';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
+import Drawer from 'material-ui/Drawer';
+import Hidden from 'material-ui/Hidden';
+import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
 
+// components
+import MenuItems from './menuItems';
+// style variables
 const drawerWidth = 360;
+const primaryColor = '#04a9f4';
+const secondaryColor = '#fffff';
 
+// style customise
 const styles = theme => ({
   root: {
     width: '100%',
@@ -32,7 +37,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
-    backgroundColor: '#04a9f4'
+    backgroundColor: primaryColor
   },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
@@ -49,7 +54,7 @@ const styles = theme => ({
     },
   },
   content: {
-    backgroundColor: '#fffff',
+    backgroundColor: secondaryColor,
     width: '100%',
     padding: theme.spacing.unit * 3,
     height: 'calc(100% - 56px)',
@@ -70,13 +75,26 @@ class Layout extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
 
+  getCurrentPageTitle = () => {
+    let pathName = (window.location.pathname);
+    if(pathName === '/'){
+      pathName = 'dashboard';
+      return pathName.charAt(0).toUpperCase() + pathName.slice(1);
+    }
+    return (pathName.split('/')[1]).charAt(0).toUpperCase() + (pathName.split('/')[1]).slice(1);
+  }
+
   render() {
     const { classes, theme, children } = this.props;
     const drawer = (
       <div>
-        <div className={classes.drawerLayout} />
+        <div className={classes.drawerLayout}>
+          <Typography variant="title" color="inherit" noWrap>
+            Dameng Pack
+          </Typography>
+        </div>
         <Divider />
-        
+        <MenuItems />
       </div>
     );
 
@@ -89,12 +107,11 @@ class Layout extends React.Component {
                 color="inherit"
                 aria-label="open drawer"
                 onClick={this.handleDrawerToggle}
-                className={classes.navIconHide}
-              >
+                className={classes.navIconHide}>
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap>
-                Dameng Pack
+                { this.getCurrentPageTitle() }
               </Typography>
             </Toolbar>
           </AppBar>
@@ -109,8 +126,7 @@ class Layout extends React.Component {
               onClose={this.handleDrawerToggle}
               ModalProps={{
                 keepMounted: true, // Better open performance on mobile.
-              }}
-            >
+              }}>
               {drawer}
             </Drawer>
           </Hidden>
@@ -120,8 +136,7 @@ class Layout extends React.Component {
               open
               classes={{
                 paper: classes.drawerPaper,
-              }}
-            >
+              }}>
               {drawer}
             </Drawer>
           </Hidden>
