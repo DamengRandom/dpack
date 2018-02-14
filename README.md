@@ -4,7 +4,7 @@ React Redux Firebase App
 ## Main tech:
 React, Redux, Firebase, Material UI 
 
-## Maib libs:
+## Main libs:
 React Router, Redux Thunk, Recompose (Rect version Lodash), Material UI 
 
 ### Goal 1: Initial app by using Webpack tech [Setup basic files (e.g.: sass and folder struture)]
