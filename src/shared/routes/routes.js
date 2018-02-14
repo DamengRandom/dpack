@@ -3,7 +3,7 @@ import { Router, Route, Redirect } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import createBrowserHistory from 'history/createBrowserHistory';
 // components
-import Login from '../../modules/components/login/login';
+import Login from '../../modules/components/auth/login';
 import Pack from '../../modules/components/pack/pack';
 import Costs from '../../modules/components/cost/costs';
 import UpdateCost from '../../modules/components/cost/updateCost';
