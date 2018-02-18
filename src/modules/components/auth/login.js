@@ -1,14 +1,24 @@
 import React from 'react';
-// components
+import { connect } from 'react-redux';
+import { firebaseApp } from '../../../shared/services/firebase';
+// actions
+import { startSignin } from '../../../actions/auth';
 
 class Login extends React.Component {
   render(){
     return (
       <div>
-        <h3>Login</h3>
+        <button onClick={() => this.props.startSignin()} 
+          className="button">Login</button>
       </div>
     )
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {  
+    startSignin: () => dispatch(startSignin()) 
+  }
+}
+
+export default connect(undefined, mapDispatchToProps)(Login);
