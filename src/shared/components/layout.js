@@ -9,6 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import Fade from 'material-ui/transitions/Fade';
 
 // components
 import MenuItems from './menuItems';
@@ -45,12 +46,17 @@ const styles = theme => ({
     },
   },
   drawerLayout: theme.mixins.toolbar,
+  menuTitle: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '1rem'
+  },
   drawerPaper: {
     width: 250,
     [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       position: 'relative',
-      height: '100%',
+      height: '100vh',
     },
   },
   content: {
@@ -89,7 +95,7 @@ class Layout extends React.Component {
     const drawer = (
       <div>
         <div className={classes.drawerLayout}>
-          <Typography variant="title" color="inherit" noWrap>
+          <Typography variant="title" color="inherit" noWrap className={classes.menuTitle}>
             Dameng Pack
           </Typography>
         </div>
@@ -141,7 +147,9 @@ class Layout extends React.Component {
             </Drawer>
           </Hidden>
           <main className={classes.content}>
-            { children }
+            <Fade in={true} style={{ transitionDelay: 500 }}>
+              { children }   
+            </Fade>
           </main>
         </div>
       </div>
