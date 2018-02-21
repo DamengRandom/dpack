@@ -1,17 +1,39 @@
 import React from 'react';
+import { connect } from "react-redux";
 // components
 import Layout from '../../../shared/components/layout';
+import CostForm from "./costForm";
+// actions
+import { startCreateCost } from "../../../actions/cost";
 
 class CreateCost extends React.Component {
+  constructor(props){
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  
+  onSubmit = (message) => {
+    this.props.startCreateCost(message);
+    if(message){
+      this.props.history.push('/');
+    }
+  }
+  
   render(){
     return (
-      <div>
-        <Layout>
-          <h3>CreateCost</h3>
-        </Layout>
-      </div>
+      <Layout>
+        <div>
+          <CostForm onSubmit={this.onSubmit} />
+        </div>
+      </Layout>
     )
   }
 }
 
-export default CreateCost;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    startCreateCost: (cost) => dispatch(startCreateCost(cost))
+  }
+}
+
+export default connect(undefined, mapDispatchToProps)(CreateCost);
