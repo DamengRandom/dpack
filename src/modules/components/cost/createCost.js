@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Layout from '../../../shared/components/layout';
 import CostForm from "./costForm";
 // actions
-import { startCreateCost } from "../../../actions/cost";
+import { startCreateCost } from "../../../actions/costs";
 
 class CreateCost extends React.Component {
   constructor(props){
@@ -15,7 +15,7 @@ class CreateCost extends React.Component {
   onSubmit = (message) => {
     this.props.startCreateCost(message);
     if(message){
-      this.props.history.push('/');
+      this.props.history.push('/costs');
     }
   }
   

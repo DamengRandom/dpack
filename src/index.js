@@ -7,6 +7,7 @@ import { firebaseApp } from '../src/shared/services/firebase';
 import ConfigureStore from '../src/store/configureStore';
 // actions
 import { startRecordUser, signout } from '../src/actions/auth';
+import { startReadCosts } from '../src/actions/costs';
 // routes
 import Routes, { history } from '../src/shared/routes/routes';
 // load css
@@ -33,14 +34,14 @@ const renderApp = () => {
 // check if user is authenticated or not
 firebaseApp.auth().onAuthStateChanged((user) => {
   if(user){
+    renderApp();
     // record user id and user data
     store.dispatch(startRecordUser(user.providerData[0]));
-    // console.log("user: ", store.getState());
-    renderApp();
+    store.dispatch(startReadCosts());
+    console.log("after login state: ", store.getState());
     if(history.location.pathname === '/'){
       history.push("/dashboard");
     }
-    // history.push("/dashboard");
   }else {
     store.dispatch(signout());
     renderApp();

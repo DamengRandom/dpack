@@ -25,7 +25,7 @@ export const startCreateCost = (costData = {}) => {
       cost,
       flag
     }
-    firebaseApp.database().ref(`/users/${userId}/cost`).push(costRecord).then((snapshot) => {
+    firebaseApp.database().ref(`/users/${userId}/costs`).push(costRecord).then((snapshot) => {
       dispatch(createCost({
         id: snapshot.key,
         ...costRecord
@@ -46,7 +46,7 @@ export const updateCost = (id, update) => {
 export const startUpdateCost = (id, update) => {
   return (dispatch, getState) => {
     const userId = getState().auth.user.uid;
-    firebaseApp.database().ref(`/user/${userId}/cost/${id}`).update(update).then(() => {
+    firebaseApp.database().ref(`/users/${userId}/costs/${id}`).update(update).then(() => {
       dispatch(updateCost(id, update));
     });
   }
@@ -63,15 +63,15 @@ export const readCosts = (costs) => {
 export const startReadCosts = () => {
   return (dispatch, getState) => {
     const userId = getState().auth.user.uid;
-    firebaseApp.database().ref(`/user/${userId}/cost`).once('value').then((snapshot) => {
-      const costs = [];
+    firebaseApp.database().ref(`/users/${userId}/costs`).once('value').then((snapshot) => {
+      const costsRecords = [];
       snapshot.forEach((eachCost) => {
-        costs.push({
+        costsRecords.push({
           id: eachCost.key,
           ...eachCost.val()
         });
       });
-      dispatch(readCosts(costs));
+      dispatch(readCosts(costsRecords));
     });
   }
 }
@@ -87,7 +87,7 @@ export const deleteCost = ({id} = {}) => {
 export const startDeleteCost = ({ id }) => {
   return (dispatch, getState) => {
     const userId = getState().auth.user.uid;
-    firebaseApp.database().ref(`/user/${userId}/cost/${id}`).remove().then((snapshot) => {
+    firebaseApp.database().ref(`/users/${userId}/costs/${id}`).remove().then((snapshot) => {
       dispatch(deleteCost({id}));
     });
   }

@@ -35,6 +35,7 @@ class CostForm extends React.Component {
     this.getCost = this.getCost.bind(this);
     this.getFlag = this.getFlag.bind(this);
     this.disableSubmit = this.disableSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   getBuyer = (e) => {
@@ -63,7 +64,7 @@ class CostForm extends React.Component {
   }
 
   disableSubmit = () => {
-    return (this.state.buyer.length > 0 && this.state.cost.length > 0) ? true : false;
+    return (this.state.buyer.length > 0 && this.state.cost.length > 0) ? false : true;
   }
 
   onSubmit = (e) => {
@@ -104,7 +105,7 @@ class CostForm extends React.Component {
           <TextField id="thing"
             label="Thing(s) Description"
             placeholder="E.g.: Milk (x2) [$6.99]"
-            multiLine
+            multiline
             rows="4"
             className={classes.textField}
             value={this.state.thing}
@@ -126,7 +127,8 @@ class CostForm extends React.Component {
           <Button variant="raised" 
             color="primary" 
             className={classes.button}
-            disabled={this.disableSubmit}>Submit</Button>
+            onClick={this.onSubmit}
+            disabled={this.disableSubmit()}>Submit</Button>
         </form>
       </div>
     )

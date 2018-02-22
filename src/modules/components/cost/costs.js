@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { firebaseApp } from '../../../shared/services/firebase';
+// actions
+import { startReadCosts } from '../../../actions/costs';
 // components
 import Layout from '../../../shared/components/layout';
 import Cost from './cost';
@@ -9,6 +11,9 @@ import Cost from './cost';
 class Costs extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      costs: []
+    }
   }
 
   renderCosts = () => {

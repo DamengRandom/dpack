@@ -8,7 +8,7 @@ import Button from 'material-ui/Button';
 import Layout from '../../../shared/components/layout';
 import CostForm from './costForm';
 // actions
-import { startUpdateCost, startDeleteCost } from "../../../actions/cost";
+import { startUpdateCost, startDeleteCost } from "../../../actions/costs";
 
 const styles = theme => ({
   button: {
