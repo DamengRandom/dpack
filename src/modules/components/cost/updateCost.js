@@ -26,11 +26,15 @@ class UpdateCost extends React.Component {
   onDelete = (id) => {
     this.props.startDeleteCost({
       id: this.props.cost.id
-    });
+    }).then(() => {
+      window.location.reload();
+    });;
   }
 
   onUpdate = (update) => {
-    this.props.startUpdateCost(this.props.cost.id, update);
+    this.props.startUpdateCost(this.props.cost.id, update).then(() => {
+      window.location.reload();
+    });
   }
 
   render(){

@@ -9,12 +9,16 @@ import moment from 'moment';
 import Layout from '../../../shared/components/layout';
 
 const styles = theme => ({
+  form: {
+    padding: theme.spacing.unit * 3
+  },
   button: {
     margin: theme.spacing.unit,
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
     width: '100%'
   }
 });
@@ -85,7 +89,7 @@ class CostForm extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <form>
+        <form className={classes.form}>
           <TextField id="buyer"
             label="Buyer Name"
             placeholder="E.g.: Damon"
