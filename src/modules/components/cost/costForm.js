@@ -8,13 +8,22 @@ import moment from 'moment';
 // components
 import Layout from '../../../shared/components/layout';
 
+const primary = "#04a9f4";
+const secondary = '#fff';
+
 const styles = theme => ({
+  form: {
+    padding: theme.spacing.unit * 3
+  },
   button: {
     margin: theme.spacing.unit,
+    backgroundColor: primary,
+    color: secondary
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
     width: '100%'
   }
 });
@@ -85,7 +94,7 @@ class CostForm extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <form>
+        <form className={classes.form}>
           <TextField id="buyer"
             label="Buyer Name"
             placeholder="E.g.: Damon"

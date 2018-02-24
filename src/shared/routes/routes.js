@@ -26,7 +26,7 @@ class Routes extends React.Component {
           <PublicRoute exact path="/" component={Login}></PublicRoute>
           <PrivateRoute exact path="/dashboard" component={Pack}></PrivateRoute>
           <PrivateRoute exact path="/costs" component={Costs}></PrivateRoute>
-          <PrivateRoute exact path="/updateCosts/:id" component={UpdateCost}></PrivateRoute>
+          <PrivateRoute exact path="/updateCost/:id" component={UpdateCost}></PrivateRoute>
           <PrivateRoute exact path="/createCost" component={CreateCost}></PrivateRoute>
           <Route path="*" component={NotFound}></Route>
         </Switch>
