@@ -1,9 +1,9 @@
-const initialState = {};
+const initialState = [];
 
 export default (state=initialState, action) => {
   switch(action.type){
     case 'CREATE_COST':
-      return state.concat(action.cost);
+      return state.concat(action.cost)
     case 'UPDATE_COST':
       return state.map((cost) => {
         if(cost.id === action.id){
