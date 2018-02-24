@@ -3,16 +3,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
-
+// icons
+import DeleteIcon from 'material-ui-icons/Delete';
 // components
 import Layout from '../../../shared/components/layout';
 import CostForm from './costForm';
 // actions
-import { startUpdateCost, startDeleteCost } from "../../../actions/costs";
+import { startReadCosts, startUpdateCost, startDeleteCost } from "../../../actions/costs";
+
+const primary = "#04a9f4";
+const secondary = '#fff';
+const alert = '#F44336';
 
 const styles = theme => ({
-  button: {
-
+  deleteButton: {
+    backgroundColor: alert,
+    color: secondary,
+    position: 'absolute',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
   }
 })
 
@@ -26,15 +35,14 @@ class UpdateCost extends React.Component {
   onDelete = (id) => {
     this.props.startDeleteCost({
       id: this.props.cost.id
-    }).then(() => {
-      window.location.reload();
-    });;
+    });
+    this.props.history.push('/costs');
   }
 
   onUpdate = (update) => {
-    this.props.startUpdateCost(this.props.cost.id, update).then(() => {
-      window.location.reload();
-    });
+    this.props.startUpdateCost(this.props.cost.id, update);
+    this.props.startReadCosts(update);
+    this.props.history.push('/costs');
   }
 
   render(){
@@ -43,7 +51,9 @@ class UpdateCost extends React.Component {
       <Layout>
         <div>
           <CostForm onSubmit={this.onUpdate} cost={this.props.cost} />
-          <Button onClick={this.onDelete} className={classes.button}>Delete</Button>
+          <Button variant="fab" onClick={this.onDelete} className={classes.deleteButton}>
+            <DeleteIcon />
+          </Button>
         </div>
       </Layout>
     )
@@ -60,6 +70,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    startReadCosts: (update) => dispatch(startReadCosts(update)),
     startUpdateCost: (id, update) => dispatch(startUpdateCost(id, update)),
     startDeleteCost: (id) => dispatch(startDeleteCost(id))
   }

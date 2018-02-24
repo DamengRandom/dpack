@@ -69,6 +69,7 @@ const styles = theme => ({
       height: 'calc(100% - 64px)',
       marginTop: 64,
     },
+    overflow: 'scroll'
   },
 });
 

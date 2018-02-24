@@ -8,12 +8,17 @@ import moment from 'moment';
 // components
 import Layout from '../../../shared/components/layout';
 
+const primary = "#04a9f4";
+const secondary = '#fff';
+
 const styles = theme => ({
   form: {
     padding: theme.spacing.unit * 3
   },
   button: {
     margin: theme.spacing.unit,
+    backgroundColor: primary,
+    color: secondary
   },
   textField: {
     marginLeft: theme.spacing.unit,
