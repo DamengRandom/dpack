@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
 import GridList, { GridListTile } from 'material-ui/GridList';
-// components
-import Layout from '../../../shared/components/layout';
 
 const primary = "#04a9f4";
 const secondary = '#fff';

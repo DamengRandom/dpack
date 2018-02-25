@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
-import { firebaseApp } from '../../../shared/services/firebase';
 import moment from 'moment';
-// components
-import Layout from '../../../shared/components/layout';
 
 const primary = "#04a9f4";
 const secondary = '#fff';
@@ -31,6 +28,7 @@ const styles = theme => ({
 class CostForm extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       buyer: props.cost ? props.cost.buyer : '',
       date: props.cost ? props.cost.date : moment.utc().format('YYYY/MM/DD'),
@@ -38,6 +36,7 @@ class CostForm extends React.Component {
       cost: props.cost ? props.cost.cost : 0,
       flag: props.cost ? props.cost.flag : ''
     }
+    
     this.getBuyer = this.getBuyer.bind(this);
     this.getDate = this.getDate.bind(this);
     this.getThing = this.getThing.bind(this);

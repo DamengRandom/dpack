@@ -16,7 +16,6 @@ export const PublicRoute = ({
 );
 
 const mapStateToProps = (state) => {
-  console.log("state public: ", state);
   return {
     isAuthenticated: !!state.auth.user
   }

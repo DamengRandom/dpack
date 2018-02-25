@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { firebaseApp } from '../../../shared/services/firebase';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
@@ -11,8 +10,6 @@ import Table, { TableBody, TableHead, TableRow, TableCell } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 // icons
 import AddIcon from 'material-ui-icons/Add';
-// actions
-import { startReadCosts } from '../../../actions/costs';
 // components
 import Layout from '../../../shared/components/layout';
 import Cost from './cost';
@@ -34,7 +31,7 @@ const styles = theme => ({
   root: {
     width: '98%',
     margin: '1%',
-    maxHeight: '60vh',
+    maxHeight: '100%',
     display: 'block',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
@@ -97,7 +94,7 @@ class Costs extends React.Component {
                         Flag                    
                       </TableCell>
                       <TableCell>
-                        View / Edit               
+                        View/Edit               
                       </TableCell>
                     </TableRow>
                   </TableHead>
@@ -123,7 +120,6 @@ class Costs extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("refectch? ", state.costs);
   return {
     costs: state.costs
   }

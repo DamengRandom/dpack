@@ -5,10 +5,7 @@ import { withStyles } from "material-ui/styles";
 import Button from 'material-ui/Button';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
-import GridList, { GridListTile } from 'material-ui/GridList';
 import Typography from 'material-ui/Typography';
-// components
-import Layout from '../../../shared/components/layout';
 
 const styles = theme => ({
   root: {

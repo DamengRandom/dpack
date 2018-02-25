@@ -5,22 +5,22 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Chip from 'material-ui/Chip';
 import Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from 'material-ui/Dialog';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
+import { TableBody, TableCell, TableRow } from 'material-ui/Table';
 import Slide from 'material-ui/transitions/Slide';
 import Tooltip from 'material-ui/Tooltip';
 // icons 
 import EditIcon from 'material-ui-icons/Edit';
 import ZoomInIcon from 'material-ui-icons/ZoomIn';
-// components
-import Layout from '../../../shared/components/layout';
 
 const primary = "#04a9f4";
 const secondary = '#fff';
 
 const styles = theme => ({
+  tooltips: {
+    display: 'inherit',
+  },
   iconPadding: {
-    paddingRight: theme.spacing.unit * 1.5,
+    paddingRight: theme.spacing.unit,
     cursor: 'pointer',
     color: primary
   },
@@ -78,10 +78,10 @@ class Cost extends React.Component {
         <Chip label={this.props.cost.flag} className={classes.chip} />
       </TableCell>
       <TableCell>
-        <Tooltip id="tooltipZoomIn" title="View" placement="bottom">
-          <ZoomInIcon className={classes.iconPadding} onClick={ this.handleClickOpen } className={classes.iconPadding} />
+        <Tooltip id="tooltipZoomIn" title="View" placement="bottom" className={classes.tooltips}>
+          <ZoomInIcon className={classes.iconPadding} onClick={ this.handleClickOpen } />
         </Tooltip>
-        <Tooltip id="tooltipEdit" title="Edit" placement="bottom">
+        <Tooltip id="tooltipEdit" title="Edit" placement="bottom" className={classes.tooltips}>
           <Link to={`/updateCost/${this.props.cost.id}`}><EditIcon className={classes.iconPadding} /></Link>
         </Tooltip>
       </TableCell>

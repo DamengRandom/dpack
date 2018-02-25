@@ -11,7 +11,6 @@ import CostForm from './costForm';
 // actions
 import { startReadCosts, startUpdateCost, startDeleteCost } from "../../../actions/costs";
 
-const primary = "#04a9f4";
 const secondary = '#fff';
 const alert = '#F44336';
 

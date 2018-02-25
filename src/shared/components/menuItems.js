@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ListItem, ListItemIcon } from 'material-ui/List';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 // icons 
@@ -28,9 +27,6 @@ const styles = theme => ({
 });
 
 class MenuItems extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render(){
     const { classes } = this.props;
     return (
