@@ -1,6 +1,5 @@
 import React from 'react';
-import { Router, Route, Redirect, Switch } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 // import { firebaseApp } from '../services/firebase';
 // components
@@ -24,7 +23,7 @@ class Routes extends React.Component {
       <Router history={history}>
         <Switch>
           <PublicRoute exact path="/" component={Login}></PublicRoute>
-          <PrivateRoute exact path="/dashboard" component={Pack}></PrivateRoute>
+          <Route exact path="/dashboard" component={Pack}></Route>
           <PrivateRoute exact path="/costs" component={Costs}></PrivateRoute>
           <PrivateRoute exact path="/updateCost/:id" component={UpdateCost}></PrivateRoute>
           <PrivateRoute exact path="/createCost" component={CreateCost}></PrivateRoute>

@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
-import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Grid from 'material-ui/Grid';
 import Tooltip from 'material-ui/Tooltip';
 // components
-import Layout from '../../../shared/components/layout';
 
 const primary = "#bbb";
 const secondary = '#fff';

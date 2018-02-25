@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
-import Grid from 'material-ui/Grid';
 // components
 import Layout from '../../../shared/components/layout';
 import PackContact from './packContact';
