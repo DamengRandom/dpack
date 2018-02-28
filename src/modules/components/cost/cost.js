@@ -75,7 +75,7 @@ class Cost extends React.Component {
         <p>{this.props.cost.cost}</p>
       </TableCell>
       <TableCell>
-        <Chip label={this.props.cost.flag} className={classes.chip} />
+        { this.props.cost.flag ? <Chip label={this.props.cost.flag} className={classes.chip} /> : '--' }
       </TableCell>
       <TableCell>
         <Tooltip id="tooltipZoomIn" title="View" placement="bottom" className={classes.tooltips}>

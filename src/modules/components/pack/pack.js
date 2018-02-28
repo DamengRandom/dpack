@@ -4,9 +4,9 @@ import { withStyles } from "material-ui/styles";
 // components
 import Layout from '../../../shared/components/layout';
 import PackContact from './packContact';
+import PackMe from './packMe';
 import PackWord from './packWord';
 import PackWorks from './packWorks';
-
 
 const styles = theme => ({
 
@@ -19,6 +19,7 @@ class Pack extends React.Component {
         <div>
           <PackWord />
           <PackWorks />
+          <PackMe />
           <PackContact />
         </div>
       </Layout>

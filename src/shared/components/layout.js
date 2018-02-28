@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
@@ -46,6 +49,19 @@ const styles = theme => ({
     },
   },
   drawerLayout: theme.mixins.toolbar,
+  drawerHeader: {
+    display: 'block',
+    margin: '0 auto',
+    marginTop: '1rem'
+  },
+  avatar: {
+    width: '60px',
+    height: '60px',
+    marginLeft: '1rem'
+  },
+  avatorName: {
+    marginLeft: '1rem'
+  },
   menuTitle: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -56,7 +72,8 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       position: 'relative',
-      height: '100vh',
+      height: '100%',
+      borderRight: 'none'
     },
   },
   content: {
@@ -68,14 +85,17 @@ const styles = theme => ({
       height: 'calc(100% - 64px)',
       marginTop: 64,
     },
-    minHeight: '38rem'
   },
 });
 
 class Layout extends React.Component {
-  state = {
-    mobileOpen: false,
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      mobileOpen: false,
+      user: this.props.user || {},
+    };
+  }
 
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
@@ -94,10 +114,10 @@ class Layout extends React.Component {
     const { classes, theme, children } = this.props;
     const drawer = (
       <div>
-        <div className={classes.drawerLayout}>
-          <Typography variant="title" color="inherit" noWrap className={classes.menuTitle}>
-            Dameng Pack
-          </Typography>
+        <div className={classNames(classes.drawerLayout, classes.drawerHeader)}>
+          <Avatar alt="Avator" src={`${this.state.user.photoURL}`}
+            className={classNames(classes.avatar, classes.bigAvatar)} />
+          <h5 className={classes.avatorName}>Hi, {this.props.user.displayName}</h5>
         </div>
         <Divider />
         <MenuItems />
@@ -157,10 +177,16 @@ class Layout extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.auth.user
+  }
+}
+
 Layout.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(Layout);
+export default connect(mapStateToProps)(withStyles(styles, { withTheme: true })(Layout));

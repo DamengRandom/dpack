@@ -38,7 +38,7 @@ firebaseApp.auth().onAuthStateChanged((user) => {
     // record user id and user data
     store.dispatch(startRecordUser(user.providerData[0]));
     store.dispatch(startReadCosts());
-    if(history.location.pathname === '/'){
+    if(history.location.pathname === '/' || history.location.pathname === '/dashboard'){
       history.push("/dashboard");
     }
   }else {

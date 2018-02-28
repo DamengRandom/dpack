@@ -14,6 +14,8 @@ import TouchAppIcon from 'material-ui-icons/TouchApp';
 import { startSignout } from '../../actions/auth';
 
 const styles = theme => ({
+  menu: {
+  },
   button: {
     width: '100%',
     margin: '0rem',
@@ -30,7 +32,7 @@ class MenuItems extends React.Component {
   render(){
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.menu}>
         {
           this.props.isAuthenticated &&
           <div>

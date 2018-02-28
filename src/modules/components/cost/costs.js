@@ -10,6 +10,7 @@ import Table, { TableBody, TableHead, TableRow, TableCell } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 // icons
 import AddIcon from 'material-ui-icons/Add';
+import TouchAppIcon from 'material-ui-icons/TouchApp';
 // components
 import Layout from '../../../shared/components/layout';
 import Cost from './cost';
@@ -34,6 +35,7 @@ const styles = theme => ({
     maxHeight: '100%',
     display: 'block',
     marginTop: theme.spacing.unit * 3,
+    marginBottom: '6rem',
     overflowX: 'auto',
     overflowY: 'auto'
   },
@@ -47,7 +49,7 @@ const styles = theme => ({
   fab: {
     position: 'absolute',
     bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 3.5,
     backgroundColor: primary,
     color: secondary
   }
@@ -72,6 +74,12 @@ class Costs extends React.Component {
     return (
       <Layout>
         <div className={ window.innerWidth < 600 ? classes.mobileContainer : classes.desktopContainer}>
+          <div>
+            <h2>Costs:</h2>
+            <TouchAppIcon />
+            <span><i>Please scroll <b>LEFT</b> and <b>RIGHT</b> to view more information on mobile devices</i></span>
+            <p><i>Please scroll to bottom to find <b>ADD</b> button to add new cost record(s) if more records, </i></p>
+          </div>
           <Grid container spacing={24}>
             <Grid item xs={12}>
               <Paper className={classes.root}>  

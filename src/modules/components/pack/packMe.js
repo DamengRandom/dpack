@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
 import GridList, { GridListTile } from 'material-ui/GridList';
 
-const primary = "#04a9f4";
+const primary = "#e5262d";
 const secondary = '#fff';
 
 const styles = theme => ({
@@ -15,11 +15,12 @@ const styles = theme => ({
     backgroundImage: `url(${'http://res.cloudinary.com/dameng/image/upload/v1519463327/dgrid_uqvsmi.png'})`,
     backgroundRepeat: 'repeat',
     backgroundPosition: 'center',
-    backgroundSize: '5%'
+    backgroundSize: '5%',
+    marginTop: '2rem'
   },
   innerHeader: {
     height: '100%',
-    padding: '10%',
+    padding: '4rem',
     textAlign: 'center'
   },
   title: {
@@ -44,15 +45,18 @@ const styles = theme => ({
 
 class PackWord extends React.Component {
   render(){
+    const motto = `Fortune always appreciate a hardworking man`;
     const { classes } = this.props;
     return (
       <GridList cols={1} spacing={0} cellHeight='auto' className={classes.root}>
         <GridListTile cols={1}>
           <div className={classes.backgroundGrid}>
             <div className={classes.innerHeader}>
-              <h2 className={classes.title}><b>D-Pack</b></h2>
+              <h2 className={classes.title}>Perosnal motto</h2>
               <hr className={classes.titleBorder} />
-              <p className={classes.motto}>DPack: A platform to demo works</p>
+              <p className={classes.motto}>
+                " {motto} "
+              </p>
             </div>
           </div>
         </GridListTile>

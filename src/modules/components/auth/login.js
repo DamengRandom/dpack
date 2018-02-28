@@ -6,7 +6,6 @@ import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 // actions
 import { startSignin } from '../../../actions/auth';
-import { EMSGSIZE } from 'constants';
 
 const primary = "#04a9f4";
 const secondary = '#fff';
