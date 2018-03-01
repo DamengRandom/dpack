@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-// import { firebaseApp } from '../services/firebase';
 // components
 import Login from '../../modules/components/auth/login';
 import Pack from '../../modules/components/pack/pack';

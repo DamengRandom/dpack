@@ -31,7 +31,9 @@ const styles = theme => ({
     color: secondary,
     width: '3.2rem',
     marginTop: '-0.8rem',
-    borderBottom: `0.2rem solid ${secondary}`
+    borderBottom: `0.2rem solid ${secondary}`,
+    display: 'block',
+    margin: '0 auto'
   },
   motto: {
     marginTop: '2rem',
@@ -51,7 +53,7 @@ class PackWord extends React.Component {
           <div className={classes.backgroundGrid}>
             <div className={classes.innerHeader}>
               <h2 className={classes.title}><b>D-Pack</b></h2>
-              <hr className={classes.titleBorder} />
+              <p className={classes.titleBorder}></p>
               <p className={classes.motto}>DPack: A platform to demo works</p>
             </div>
           </div>

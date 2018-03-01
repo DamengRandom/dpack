@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
-import Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from 'material-ui/Dialog';
+import Dialog, { DialogContent, DialogTitle } from 'material-ui/Dialog';
 import Grid from 'material-ui/Grid';
 import Slide from 'material-ui/transitions/Slide';
 import Tooltip from 'material-ui/Tooltip';

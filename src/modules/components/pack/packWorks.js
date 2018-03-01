@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from "material-ui/styles";
 import Button from 'material-ui/Button';
-import Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from 'material-ui/Dialog';
+import Dialog, { DialogContent, DialogTitle } from 'material-ui/Dialog';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
 import Slide from 'material-ui/transitions/Slide';
@@ -36,7 +36,9 @@ const styles = theme => ({
     color: primary,
     width: '3.2rem',
     marginTop: '-0.8rem',
-    borderBottom: `0.2rem solid ${primary}`
+    borderBottom: `0.2rem solid ${primary}`,
+    display: 'block',
+    margin: '0 auto'
   },
   card: {
     maxWidth: 320,
@@ -81,7 +83,7 @@ class PackWorks extends React.Component {
       <div className={classes.root}>
         <div className={classes.titleBox}>
           <h2 className={classes.worksTitle}>Works</h2>
-          <hr className={classes.titleBorder} />
+          <p className={classes.titleBorder}></p>
         </div>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>  
