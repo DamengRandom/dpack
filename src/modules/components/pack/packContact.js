@@ -102,6 +102,7 @@ class PackContact extends React.Component {
                 onClose={this.handleClickClose}>
                 <DialogTitle>WeChat QR Code: </DialogTitle>
                 <DialogContent>
+                  <p>Wechat ID: Damon0503</p>
                   <img className={classes.wechatLogo} src="http://res.cloudinary.com/dameng/image/upload/v1519810375/wechat_qr_zxu6pg.jpg" alt="QR Code" />
                 </DialogContent>
                 <Button onClick={this.handleClickClose} className={classes.closeButton}>

@@ -26,7 +26,7 @@ const styles = theme => ({
     paddingRight: '1rem'
   },
   titleBox: {
-    marginBottom: '4rem'
+    marginBottom: '2rem'
   },
   worksTitle: {
     textAlign: 'center',
