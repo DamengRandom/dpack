@@ -98,13 +98,13 @@ class Cost extends React.Component {
           onClose={this.handleClickClose}>
           <DialogTitle>Detail for Buyer: { this.props.cost.buyer }</DialogTitle>
           <DialogContent>
-            <i>Dated on: { this.props.cost.date }</i>
-            <p>Thing(s) [Bought]: </p>
+            <i><b>Dated on: </b>{ this.props.cost.date }</i>
+            <p><b>Thing(s) Bought: </b></p>
             <DialogContentText>
               { this.props.cost.thing }
             </DialogContentText>
-            <p>Total Cost: {this.props.cost.cost}</p>
-            <p>Category{this.props.cost.flag}</p>
+            <p><b>Total Cost:</b> {this.props.cost.cost}</p>
+            <p><b>Category: </b> {this.props.cost.flag}</p>
             <DialogActions>
               <Button onClick={this.handleClickClose} className={classes.closeButton}>
                 Close

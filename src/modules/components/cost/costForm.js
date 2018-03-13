@@ -33,7 +33,7 @@ class CostForm extends React.Component {
       buyer: props.cost ? props.cost.buyer : '',
       date: props.cost ? props.cost.date : moment.utc().format('YYYY/MM/DD'),
       thing: props.cost ? props.cost.thing : '',
-      cost: props.cost ? props.cost.cost : 0,
+      cost: props.cost ? props.cost.cost : '',
       flag: props.cost ? props.cost.flag : ''
     }
     
